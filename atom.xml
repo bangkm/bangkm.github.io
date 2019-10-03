@@ -1,41 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>Bangkm</title>
   
-  
+  <subtitle>Daily Develop&#39;s</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://bangkm.github.io/"/>
-  <updated>2019-10-01T08:11:15.820Z</updated>
+  <updated>2019-10-03T17:25:12.240Z</updated>
   <id>https://bangkm.github.io/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>Bangkm</name>
     
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="https://bangkm.github.io/2019/10/01/BaekJoon(#11399)%20-%20ATM%20(Greedy%20Algorithm)/"/>
-    <id>https://bangkm.github.io/2019/10/01/BaekJoon(#11399) - ATM (Greedy Algorithm)/</id>
-    <published>2019-10-01T08:11:14.408Z</published>
-    <updated>2019-10-01T08:11:15.820Z</updated>
+    <title>CodeUp(#2001) - MinumumPayment (Greedy Algorithm)</title>
+    <link href="https://bangkm.github.io/2019/10/04/MinumumPayment/"/>
+    <id>https://bangkm.github.io/2019/10/04/MinumumPayment/</id>
+    <published>2019-10-03T17:18:35.000Z</published>
+    <updated>2019-10-03T17:25:12.240Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="문제-출처-BAEKJOON"><a href="#문제-출처-BAEKJOON" class="headerlink" title="문제 출처 - BAEKJOON"></a>문제 출처 - BAEKJOON</h2><hr><h3 id="mag-right-문제"><a href="#mag-right-문제" class="headerlink" title=":mag_right: 문제"></a>:mag_right: 문제</h3><p>인하은행에는 ATM이 1대밖에 없다. 지금 이 ATM앞에 N명의 사람들이 줄을 서있다. 사람은 1번부터 N번까지 번호가 매겨져 있으며, i번 사람이 돈을 인출하는데 걸리는 시간은 Pi분이다.</p><p>사람들이 줄을 서는 순서에 따라서, 돈을 인출하는데 필요한 시간의 합이 달라지게 된다. 예를 들어, 총 5명이 있고, P1 = 3, P2 = 1, P3 = 4, P4 = 3, P5 = 2 인 경우를 생각해보자. [1, 2, 3, 4, 5] 순서로 줄을 선다면, 1번 사람은 3분만에 돈을 뽑을 수 있다. 2번 사람은 1번 사람이 돈을 뽑을 때 까지 기다려야 하기 때문에, 3+1 = 4분이 걸리게 된다. 3번 사람은 1번, 2번 사람이 돈을 뽑을 때까지 기다려야 하기 때문에, 총 3+1+4 = 8분이 필요하게 된다. 4번 사람은 3+1+4+3 = 11분, 5번 사람은 3+1+4+3+2 = 13분이 걸리게 된다. 이 경우에 각 사람이 돈을 인출하는데 필요한 시간의 합은 3+4+8+11+13 = 39분이 된다.</p><p>줄을 [2, 5, 1, 4, 3] 순서로 줄을 서면, 2번 사람은 1분만에, 5번 사람은 1+2 = 3분, 1번 사람은 1+2+3 = 6분, 4번 사람은 1+2+3+3 = 9분, 3번 사람은 1+2+3+3+4 = 13분이 걸리게 된다. 각 사람이 돈을 인출하는데 필요한 시간의 합은 1+3+6+9+13 = 32분이다. 이 방법보다 더 필요한 시간의 합을 최소로 만들 수는 없다.</p><p>줄을 서 있는 사람의 수 N과 각 사람이 돈을 인출하는데 걸리는 시간 Pi가 주어졌을 때, 각 사람이 돈을 인출하는데 필요한 시간의 합의 최솟값을 구하는 프로그램을 작성하시오.</p><h3 id="mag-right-입력"><a href="#mag-right-입력" class="headerlink" title=":mag_right: 입력"></a>:mag_right: 입력</h3><p>첫째 줄에 사람의 수 N(1 ≤ N ≤ 1,000)이 주어진다. 둘째 줄에는 각 사람이 돈을 인출하는데 걸리는 시간 Pi가 주어진다. (1 ≤ Pi ≤ 1,000)</p><h3 id="mag-right-출력"><a href="#mag-right-출력" class="headerlink" title=":mag_right: 출력"></a>:mag_right: 출력</h3><p>첫째 줄에 각 사람이 돈을 인출하는데 필요한 시간의 합의 최솟값을 출력한다.</p><h3 id="예제-입력"><a href="#예제-입력" class="headerlink" title="예제 입력"></a>예제 입력</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">3</span> <span class="number">1</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span></span><br></pre></td></tr></table></figure><h3 id="예제-출력"><a href="#예제-출력" class="headerlink" title="예제 출력"></a>예제 출력</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">32</span><br></pre></td></tr></table></figure><h3 id="mag-right-솔루션"><a href="#mag-right-솔루션" class="headerlink" title=":mag_right: 솔루션"></a>:mag_right: 솔루션</h3><p>각 사람의 돈을 인출하는데 걸리는 시간이 가장 작은 순으로 줄을스면 인출하는데 걸리는 시간의 총합의 최솟값을 구할 수 있다. 즉, 오름 차순으로 정렬하여 각 사람당 인출하는데 걸리는 시간을 구하고 시간의 총합을 구하면 최솟값이 된다.</p>]]></content>
+    <content type="html"><![CDATA[<h3 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h3><p>파파 파스타 가게는 점심 추천 파스타와 생과일 쥬스 세트 메뉴가 인기가 좋다. 이 세트 메뉴를 주문하면 그 날의 3 종류의 파스타와 2 종류의 생과일 쥬스에서 하나씩 선택한다. <strong>파스타와 생과일 쥬스의 가격 합계에서 10%를 더한 금액이 대금된다.</strong> 어느 날의 파스타와 생과일 쥬스의 가격이 주어 졌을 때, 그 날 세트 메뉴의 대금의 최소값을 구하는 프로그램을 작성하라.</p><hr><h3 id="입력"><a href="#입력" class="headerlink" title="입력"></a>입력</h3><p>입력은 5행으로 이루어지며, 한 줄에 하나씩 양의 정수가 적혀있다.</p><p>1행의 점수는 <strong>첫 번째 파스타</strong> 가격이다.</p><p>2행의 점수는 <strong>두 번째 파스타</strong> 가격이다.</p><p>3행의 점수는 <strong>세 번째 파스타</strong> 가격이다.</p><p>4행의 점수는 <strong>첫 번째 생과일 쥬스</strong> 가격이다.</p><p>5행의 점수는 <strong>두 번째 생과일 쥬스</strong> 가격이다.</p><p>(모든 파스타와 생과일 쥬스의 가격은 100원 이상 2000원 이하이다)</p><hr><h3 id="출력"><a href="#출력" class="headerlink" title="출력"></a>출력</h3><p>그날 세트 메뉴의 <strong>최소 대금을 소수 첫째자리까지</strong> 출력하시오.</p><hr><h3 id="입력-예시"><a href="#입력-예시" class="headerlink" title="입력 예시"></a>입력 예시</h3><p>800</p><p>700</p><p>900</p><p>198</p><p>330</p><hr><h3 id="출력-예시"><a href="#출력-예시" class="headerlink" title="출력 예시"></a>출력 예시</h3><p>987.8</p><hr><h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>배열의 인덱스 0~2는 파스타의 가격, 3-4는 생과일 쥬스의 가격이다. 이중 for loop로 파스타에 해당되는 인덱스(0-2)와 생과일 쥬스에 해당되는 인덱스(3-4)의 가격을 더한 후 합이 제일 작은 금액을 구한다. 마지막으로 최소 금액의 10%를 더한 값을 출력한다</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">prices = [<span class="number">800</span>, <span class="number">700</span>, <span class="number">900</span>, <span class="number">198</span>, <span class="number">330</span>]</span><br><span class="line">totalPrice = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> pasta <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line">    <span class="keyword">for</span> drink <span class="keyword">in</span> range(<span class="number">3</span>,<span class="number">5</span>):</span><br><span class="line">        sumPrice = prices[pasta] + prices[drink]</span><br><span class="line">        <span class="keyword">if</span> pasta == <span class="number">0</span> <span class="keyword">and</span> drink == <span class="number">3</span>:</span><br><span class="line">            totalPrice = sumPrice</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> sumPrice &lt; totalPrice:</span><br><span class="line">            totalPrice = sumPrice</span><br><span class="line"></span><br><span class="line">print(totalPrice + (totalPrice * <span class="number">0.1</span>))</span><br></pre></td></tr></table></figure><p>[ Source ] <a href="https://github.com/bangkm/study-algorithm/tree/master/code-up/MinimunPayment" target="_blank" rel="noopener">https://github.com/bangkm/study-algorithm/tree/master/code-up/MinimunPayment</a></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;문제-출처-BAEKJOON&quot;&gt;&lt;a href=&quot;#문제-출처-BAEKJOON&quot; class=&quot;headerlink&quot; title=&quot;문제 출처 - BAEKJOON&quot;&gt;&lt;/a&gt;문제 출처 - BAEKJOON&lt;/h2&gt;&lt;hr&gt;
-&lt;h3 id=&quot;mag-righ
+        &lt;h3 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h3&gt;&lt;p&gt;파파 파스타 가게는 점심 추천 파스타와 생과일 쥬스 세트 메뉴가 인기가 좋다. 이 세트 메뉴를 주문하면 그 날의 3 종류의 파
       
     
     </summary>
     
     
+      <category term="Code-Up Algorithm" scheme="https://bangkm.github.io/categories/Code-Up-Algorithm/"/>
+    
+    
+      <category term="Greedy Algorithm" scheme="https://bangkm.github.io/tags/Greedy-Algorithm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BaekJoon(#11399) - ATM (Greedy Algorithm)</title>
+    <link href="https://bangkm.github.io/2019/10/04/BaekJoon(11399)/"/>
+    <id>https://bangkm.github.io/2019/10/04/BaekJoon(11399)/</id>
+    <published>2019-10-03T16:34:58.000Z</published>
+    <updated>2019-10-03T17:17:12.448Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h3><p>인하은행에는 ATM이 1대밖에 없다. 지금 이 ATM앞에 N명의 사람들이 줄을 서있다. 사람은 1번부터 N번까지 번호가 매겨져 있으며, i번 사람이 돈을 인출하는데 걸리는 시간은 Pi분이다.</p><p>사람들이 줄을 서는 순서에 따라서, 돈을 인출하는데 필요한 시간의 합이 달라지게 된다. 예를 들어, 총 5명이 있고, P1 = 3, P2 = 1, P3 = 4, P4 = 3, P5 = 2 인 경우를 생각해보자. [1, 2, 3, 4, 5] 순서로 줄을 선다면, 1번 사람은 3분만에 돈을 뽑을 수 있다. 2번 사람은 1번 사람이 돈을 뽑을 때 까지 기다려야 하기 때문에, 3+1 = 4분이 걸리게 된다. 3번 사람은 1번, 2번 사람이 돈을 뽑을 때까지 기다려야 하기 때문에, 총 3+1+4 = 8분이 필요하게 된다. 4번 사람은 3+1+4+3 = 11분, 5번 사람은 3+1+4+3+2 = 13분이 걸리게 된다. 이 경우에 각 사람이 돈을 인출하는데 필요한 시간의 합은 3+4+8+11+13 = 39분이 된다.</p><p>줄을 [2, 5, 1, 4, 3] 순서로 줄을 서면, 2번 사람은 1분만에, 5번 사람은 1+2 = 3분, 1번 사람은 1+2+3 = 6분, 4번 사람은 1+2+3+3 = 9분, 3번 사람은 1+2+3+3+4 = 13분이 걸리게 된다. 각 사람이 돈을 인출하는데 필요한 시간의 합은 1+3+6+9+13 = 32분이다. 이 방법보다 더 필요한 시간의 합을 최소로 만들 수는 없다.</p><p>줄을 서 있는 사람의 수 N과 각 사람이 돈을 인출하는데 걸리는 시간 Pi가 주어졌을 때, 각 사람이 돈을 인출하는데 필요한 시간의 합의 최솟값을 구하는 프로그램을 작성하시오.</p><h3 id="입력"><a href="#입력" class="headerlink" title="입력"></a>입력</h3><p>첫째 줄에 사람의 수 N(1 ≤ N ≤ 1,000)이 주어진다. 둘째 줄에는 각 사람이 돈을 인출하는데 걸리는 시간 Pi가 주어진다. (1 ≤ Pi ≤ 1,000)</p><h3 id="출력"><a href="#출력" class="headerlink" title="출력"></a>출력</h3><p>첫째 줄에 각 사람이 돈을 인출하는데 필요한 시간의 합의 최솟값을 출력한다.</p><h3 id="예제-입력"><a href="#예제-입력" class="headerlink" title="예제 입력"></a>예제 입력</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">3</span> <span class="number">1</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span></span><br></pre></td></tr></table></figure><h3 id="예제-출력"><a href="#예제-출력" class="headerlink" title="예제 출력"></a>예제 출력</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">32</span><br></pre></td></tr></table></figure><h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>각 사람의 돈을 인출하는데 걸리는 시간이 가장 작은 순으로 줄을스면 인출하는데 걸리는 시간의 총합의 최솟값을 구할 수 있다. 즉, 오름 차순으로 정렬하여 각 사람당 인출하는데 걸리는 시간을 구하고 시간의 총합을 구하면 최솟값이 된다.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">n = int(input())</span><br><span class="line">times = list(map(int, input().split()))</span><br><span class="line"></span><br><span class="line">times.sort()</span><br><span class="line">sumList = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">result = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> time <span class="keyword">in</span> times:</span><br><span class="line">    sumList += time</span><br><span class="line">    result.append(sumList)</span><br><span class="line"></span><br><span class="line">print(sum(result))</span><br></pre></td></tr></table></figure><p>[ Source ] <a href="https://github.com/bangkm/study-algorithm/tree/master/baekjoon/greedy_algorithm/atm" target="_blank" rel="noopener">https://github.com/bangkm/study-algorithm/tree/master/baekjoon/greedy_algorithm/atm</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h3&gt;&lt;p&gt;인하은행에는 ATM이 1대밖에 없다. 지금 이 ATM앞에 N명의 사람들이 줄을 서있다. 사람은 1번부터 N번까지 번호가 매겨져
+      
+    
+    </summary>
+    
+    
+      <category term="BaekJoon Algorithm" scheme="https://bangkm.github.io/categories/BaekJoon-Algorithm/"/>
+    
+    
+      <category term="Greedy Algorithm" scheme="https://bangkm.github.io/tags/Greedy-Algorithm/"/>
     
   </entry>
   

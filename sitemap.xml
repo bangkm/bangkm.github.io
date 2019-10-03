@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://bangkm.github.io/2019/10/01/BaekJoon(#11399)%20-%20ATM%20(Greedy%20Algorithm)/</loc>
+    <loc>https://bangkm.github.io/2019/10/04/MinumumPayment/</loc>
     
-    <lastmod>2019-10-01T08:11:15.820Z</lastmod>
+    <lastmod>2019-10-03T17:25:12.240Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://bangkm.github.io/2019/10/04/BaekJoon(11399)/</loc>
+    
+    <lastmod>2019-10-03T17:17:12.448Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://bangkm.github.io/categories/index.html</loc>
+    
+    <lastmod>2019-10-03T17:17:08.781Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://bangkm.github.io/tags/index.html</loc>
+    
+    <lastmod>2019-10-03T17:04:50.839Z</lastmod>
     
   </url>
   
