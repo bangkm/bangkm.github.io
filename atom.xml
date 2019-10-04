@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://bangkm.github.io/"/>
-  <updated>2019-10-03T17:25:12.240Z</updated>
+  <updated>2019-10-04T15:25:10.511Z</updated>
   <id>https://bangkm.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>BaekJoon(#11399) - Coin (Greedy Algorithm)</title>
+    <link href="https://bangkm.github.io/2019/10/05/BaekJoon(11047)/"/>
+    <id>https://bangkm.github.io/2019/10/05/BaekJoon(11047)/</id>
+    <published>2019-10-04T15:21:15.000Z</published>
+    <updated>2019-10-04T15:25:10.511Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h3><p>준규가 가지고 있는 동전은 총 N종류이고, 각각의 동전을 매우 많이 가지고 있다.</p><p>동전을 적절히 사용해서 그 가치의 합을 K로 만들려고 한다. 이때 필요한 동전 개수의 최솟값을 구하는 프로그램을 작성하시오.</p><h3 id="입력"><a href="#입력" class="headerlink" title="입력"></a>입력</h3><p>첫째 줄에 N과 K가 주어진다. (1 ≤ N ≤ 10, 1 ≤ K ≤ 100,000,000)</p><p>둘째 줄부터 N개의 줄에 동전의 가치 Ai가 오름차순으로 주어진다. (1 ≤ Ai ≤ 1,000,000, A1 = 1, i ≥ 2인 경우에 Ai는 Ai-1의 배수)</p><h3 id="출력"><a href="#출력" class="headerlink" title="출력"></a>출력</h3><p>첫째 줄에 K원을 만드는데 필요한 동전 개수의 최솟값을 출력한다.</p><h3 id="예제-입력-1"><a href="#예제-입력-1" class="headerlink" title="예제 입력 1"></a>예제 입력 1</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span> <span class="number">4200</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="number">50</span></span><br><span class="line"><span class="number">100</span></span><br><span class="line"><span class="number">500</span></span><br><span class="line"><span class="number">1000</span></span><br><span class="line"><span class="number">5000</span></span><br><span class="line"><span class="number">10000</span></span><br><span class="line"><span class="number">50000</span></span><br></pre></td></tr></table></figure><h3 id="예제-출력-1"><a href="#예제-출력-1" class="headerlink" title="예제 출력 1"></a>예제 출력 1</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure><h3 id="예제-입력-2"><a href="#예제-입력-2" class="headerlink" title="예제 입력 2"></a>예제 입력 2</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span> <span class="number">4790</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="number">50</span></span><br><span class="line"><span class="number">100</span></span><br><span class="line"><span class="number">500</span></span><br><span class="line"><span class="number">1000</span></span><br><span class="line"><span class="number">5000</span></span><br><span class="line"><span class="number">10000</span></span><br><span class="line"><span class="number">50000</span></span><br></pre></td></tr></table></figure><h3 id="예제-출력-2"><a href="#예제-출력-2" class="headerlink" title="예제 출력 2"></a>예제 출력 2</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">12</span></span><br></pre></td></tr></table></figure><h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>동전의 종류를 역순으로 현재 가지고 있는 금액과 비교한다. 동전의 종류가 현재 가지고 있는 금액보다 크면 continue, 작으면  divmod 함수를 사용하여 몫과 나머지를 구해준다</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a, b = divmod(x, y) <span class="comment"># x를 y로 나눈 후, 몫은 a, 나머지는 b 변수에 저장된다</span></span><br></pre></td></tr></table></figure><p>몫은 필요한 동전의 개수로 result 변수에 더해주고, 나머지는 필요한 동전만큼 빼고 현재 남은 금액을 나타냄으로 현재 가지고 있는 금액 변수인 haveCash에 저장하여 금액이 0원이 될때까지 반복 후 동전의 갯수를 출력한다.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">kindOfcoine = []</span><br><span class="line">nAndk = list(map(int, input().split()))</span><br><span class="line">haveCash = nAndk[<span class="number">1</span>]</span><br><span class="line">result = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(nAndk[<span class="number">0</span>]):</span><br><span class="line">    kindOfcoine.append(int(input()))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> reversed(kindOfcoine):</span><br><span class="line">    <span class="keyword">if</span> haveCash &lt; i:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        a, b = divmod(haveCash, i)</span><br><span class="line">        result += a</span><br><span class="line">        haveCash = b</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">if</span> haveCash == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure><p>[ Source ] <a href="https://github.com/bangkm/study-algorithm/tree/master/baekjoon/greedy_algorithm/coin" target="_blank" rel="noopener">https://github.com/bangkm/study-algorithm/tree/master/baekjoon/greedy_algorithm/coin</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h3&gt;&lt;p&gt;준규가 가지고 있는 동전은 총 N종류이고, 각각의 동전을 매우 많이 가지고 있다.&lt;/p&gt;
+&lt;p&gt;동전을 적절히 사용해서 그 가치
+      
+    
+    </summary>
+    
+    
+      <category term="BaekJoon Algorithm" scheme="https://bangkm.github.io/categories/BaekJoon-Algorithm/"/>
+    
+    
+      <category term="Greedy Algorithm" scheme="https://bangkm.github.io/tags/Greedy-Algorithm/"/>
+    
+  </entry>
   
   <entry>
     <title>CodeUp(#2001) - MinumumPayment (Greedy Algorithm)</title>
