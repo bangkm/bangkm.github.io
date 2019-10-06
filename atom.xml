@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://bangkm.github.io/"/>
-  <updated>2019-10-04T15:25:10.511Z</updated>
+  <updated>2019-10-06T11:54:46.060Z</updated>
   <id>https://bangkm.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>BaekJoon(#5585) - Change (Greedy Algorithm)</title>
+    <link href="https://bangkm.github.io/2019/10/06/BaekJoon(5585)/"/>
+    <id>https://bangkm.github.io/2019/10/06/BaekJoon(5585)/</id>
+    <published>2019-10-06T11:50:56.000Z</published>
+    <updated>2019-10-06T11:54:46.060Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h3><p>타로는 자주 JOI잡화점에서 물건을 산다. JOI잡화점에는 잔돈으로 500엔, 100엔, 50엔, 10엔, 5엔, 1엔이 충분히 있고, 언제나 거스름돈 개수가 가장 적게 잔돈을 준다. 타로가 JOI잡화점에서 물건을 사고 카운터에서 1000엔 지폐를 한장 냈을 때, 받을 잔돈에 포함된 잔돈의 개수를 구하는 프로그램을 작성하시오.</p><p>예를 들어 입력된 예1의 경우에는 아래 그림에서 처럼 4개를 출력해야 한다.</p><img src="https://onlinejudgeimages.s3-ap-northeast-1.amazonaws.com/problem/5585/1.png"><h3 id="입력"><a href="#입력" class="headerlink" title="입력"></a>입력</h3><p>입력은 한줄로 이루어져있고, 타로가 지불할 돈(1 이상 1000미만의 정수) 1개가 쓰여져있다.</p><h3 id="출력"><a href="#출력" class="headerlink" title="출력"></a>출력</h3><p>제출할 출력 파일은 1행으로만 되어 있다. 잔돈에 포함된 매수를 출력하시오.</p><h3 id="예제-입력"><a href="#예제-입력" class="headerlink" title="예제 입력"></a>예제 입력</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">380</span></span><br></pre></td></tr></table></figure><h3 id="예제-출력"><a href="#예제-출력" class="headerlink" title="예제 출력"></a>예제 출력</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure><h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>잡화점에서 보유하고 있는 잔돈 500, 100, 50, 10, 5, 1엔을 리스트에 저장한 후 타로가 카운터에 제출한 1000엔에서 물건 값을 뺀 후 가장 적은 수의 잔돈을 계산한다.</p><p><strong>백준 알고리즘 - #11047</strong> 문제와 유사한 문제로 동일하게 divmod(a, b) 함수를 사용하여 잔돈 갯수의 최소값을 구한다.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a, b = divmod(x, y) <span class="comment"># x를 y로 나눈 후, 몫은 a, 나머지는 b 변수에 저장된다</span></span><br></pre></td></tr></table></figure><p>몫은 필요한 동전의 개수로 result 변수에 더해주고, 나머지는 필요한 동전만큼 빼고 현재 남은 금액을 나타냄으로 현재 남은 잔돈의 금액에 저장하며 잔돈이 0원이 될때까지 반복 후 총 잔돈의 갯수를 출력한다.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">price = int(input())</span><br><span class="line">changes = [<span class="number">500</span>, <span class="number">100</span>, <span class="number">50</span>, <span class="number">10</span>, <span class="number">5</span>, <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">change = <span class="number">1000</span> - price</span><br><span class="line"></span><br><span class="line">result = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> changes:</span><br><span class="line">    <span class="keyword">if</span> change &lt; i:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        a, b = divmod(change, i)</span><br><span class="line">        result += a</span><br><span class="line">        change = b</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> change == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure><p>[ Source ] <a href="https://github.com/bangkm/study-algorithm/tree/master/baekjoon/greedy_algorithm/change" target="_blank" rel="noopener">https://github.com/bangkm/study-algorithm/tree/master/baekjoon/greedy_algorithm/change</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h3&gt;&lt;p&gt;타로는 자주 JOI잡화점에서 물건을 산다. JOI잡화점에는 잔돈으로 500엔, 100엔, 50엔, 10엔, 5엔, 1엔이 충분
+      
+    
+    </summary>
+    
+    
+      <category term="BaekJoon Algorithm" scheme="https://bangkm.github.io/categories/BaekJoon-Algorithm/"/>
+    
+    
+      <category term="Greedy Algorithm" scheme="https://bangkm.github.io/tags/Greedy-Algorithm/"/>
+    
+  </entry>
   
   <entry>
     <title>BaekJoon(#11399) - Coin (Greedy Algorithm)</title>
