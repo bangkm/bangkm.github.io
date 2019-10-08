@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://bangkm.github.io/"/>
-  <updated>2019-10-07T09:43:46.097Z</updated>
+  <updated>2019-10-08T14:30:12.176Z</updated>
   <id>https://bangkm.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>tete</title>
+    <link href="https://bangkm.github.io/2019/10/08/BaekJoon(10610)/"/>
+    <id>https://bangkm.github.io/2019/10/08/BaekJoon(10610)/</id>
+    <published>2019-10-08T14:25:56.000Z</published>
+    <updated>2019-10-08T14:30:12.176Z</updated>
+    
+    <content type="html"><![CDATA[<p>###문제</p><p>어느 날, 미르코는 우연히 길거리에서 양수 N을 보았다. 미르코는 30이란 수를 존경하기 때문에, 그는 길거리에서 찾은 수에 포함된 숫자들을 섞어 30의 배수가 되는 가장 큰 수를 만들고 싶어한다.</p><p>미르코를 도와 그가 만들고 싶어하는 수를 계산하는 프로그램을 작성하라.</p><h3 id="입력"><a href="#입력" class="headerlink" title="입력"></a>입력</h3><p>N을 입력받는다. N는 최대 105개의 숫자로 구성되어 있으며, 0으로 시작하지 않는다.</p><h3 id="출력"><a href="#출력" class="headerlink" title="출력"></a>출력</h3><p>미르코가 만들고 싶어하는 수가 존재한다면 그 수를 출력하라. 그 수가 존재하지 않는다면, -1을 출력하라.</p><h3 id="예제-입력1"><a href="#예제-입력1" class="headerlink" title="예제 입력1"></a>예제 입력1</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">30</span></span><br></pre></td></tr></table></figure><h3 id="예제-출력1"><a href="#예제-출력1" class="headerlink" title="예제 출력1"></a>예제 출력1</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">30</span></span><br></pre></td></tr></table></figure><h3 id="예제-입력2"><a href="#예제-입력2" class="headerlink" title="예제 입력2"></a>예제 입력2</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">102</span></span><br></pre></td></tr></table></figure><h3 id="예제-출력2"><a href="#예제-출력2" class="headerlink" title="예제 출력2"></a>예제 출력2</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">210</span></span><br></pre></td></tr></table></figure><h3 id="예제-입력3"><a href="#예제-입력3" class="headerlink" title="예제 입력3"></a>예제 입력3</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2931</span></span><br></pre></td></tr></table></figure><h3 id="예제-출력3"><a href="#예제-출력3" class="headerlink" title="예제 출력3"></a>예제 출력3</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-1</span><br></pre></td></tr></table></figure><h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><ul><li>30의 배수 조건<ul><li>한개 이상의 0을 가지고 있어야 한다.</li><li>각 자리수의 합이 3의 배수여야 한다.</li></ul></li></ul><p>임의 정수 N을 입력 받아 각 자리수를 잘라 0부터 9까지 숫자가 몇개로 조합됬는지 확인한다. N의 각 자리수를 비교하여 0이 없거나 각 자리수의 합이 3으로 나누었을 때 나머지가 0이 아니면 (N % 3 != 0)  <strong>-1</strong>을 출력한다. 이 두 조건을 모두 만족하면 30의 배수가 될 수 있는 수 임으로, 0-9까지 각 숫자의 개수를 가지고 있는 리스트를 역으로 반복하여 문자열에 합해준다.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">number = [<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">10</span>)]</span><br><span class="line"></span><br><span class="line">N = list(map(int, input()))</span><br><span class="line"></span><br><span class="line">total = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(N)):</span><br><span class="line">    a = N[i]</span><br><span class="line">    number[a] += <span class="number">1</span></span><br><span class="line">    total += a</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="number">0</span> <span class="keyword">not</span> <span class="keyword">in</span> N <span class="keyword">or</span> <span class="keyword">not</span>(total % <span class="number">3</span>  == <span class="number">0</span>):</span><br><span class="line">    print(<span class="number">-1</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    result = <span class="string">''</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range((len(number) - <span class="number">1</span>), <span class="number">-1</span>, <span class="number">-1</span>):</span><br><span class="line">        <span class="keyword">while</span> number[i] &gt; <span class="number">0</span>:</span><br><span class="line">            result += str(i)</span><br><span class="line">            number[i] -= <span class="number">1</span></span><br><span class="line">    print(result)</span><br></pre></td></tr></table></figure><p>[ Source ] <a href="https://github.com/bangkm/study-algorithm/tree/master/baekjoon/greedy_algorithm/30" target="_blank" rel="noopener">https://github.com/bangkm/study-algorithm/tree/master/baekjoon/greedy_algorithm/30</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;###문제&lt;/p&gt;
+&lt;p&gt;어느 날, 미르코는 우연히 길거리에서 양수 N을 보았다. 미르코는 30이란 수를 존경하기 때문에, 그는 길거리에서 찾은 수에 포함된 숫자들을 섞어 30의 배수가 되는 가장 큰 수를 만들고 싶어한다.&lt;/p&gt;
+&lt;p&gt;미르코를 도
+      
+    
+    </summary>
+    
+    
+      <category term="BaekJoon Algorithm" scheme="https://bangkm.github.io/categories/BaekJoon-Algorithm/"/>
+    
+    
+      <category term="Greedy Algorithm" scheme="https://bangkm.github.io/tags/Greedy-Algorithm/"/>
+    
+  </entry>
   
   <entry>
     <title>BaekJoon(#5585) - BFS/DFS (BFS/DFS Algorithm)</title>
