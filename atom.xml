@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://bangkm.github.io/"/>
-  <updated>2019-10-15T08:02:42.085Z</updated>
+  <updated>2019-10-15T09:41:17.103Z</updated>
   <id>https://bangkm.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Programmers(#42883) - Make Large Number</title>
+    <link href="https://bangkm.github.io/2019/10/15/Programmers(42883)/"/>
+    <id>https://bangkm.github.io/2019/10/15/Programmers(42883)/</id>
+    <published>2019-10-15T09:36:50.000Z</published>
+    <updated>2019-10-15T09:41:17.103Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h3><p>어떤 숫자에서 k개의 수를 제거했을 때 얻을 수 있는 가장 큰 숫자를 구하려 합니다.</p><p>예를 들어, 숫자 1924에서 수 두 개를 제거하면 [19, 12, 14, 92, 94, 24] 를 만들 수 있습니다. 이 중 가장 큰 숫자는 94 입니다.</p><p>문자열 형식으로 숫자 number와 제거할 수의 개수 k가 solution 함수의 매개변수로 주어집니다. number에서 k 개의 수를 제거했을 때 만들 수 있는 수 중 가장 큰 숫자를 문자열 형태로 return 하도록 solution 함수를 완성하세요.</p><h3 id="제한-조건"><a href="#제한-조건" class="headerlink" title="제한 조건"></a>제한 조건</h3><ul><li>number는 1자리 이상, 1,000,000자리 이하인 숫자입니다.</li><li>k는 1 이상 <code>number의 자릿수</code> 미만인 자연수입니다.</li></ul><h3 id="입출력-예"><a href="#입출력-예" class="headerlink" title="입출력 예"></a>입출력 예</h3><table><thead><tr><th align="left">number</th><th align="center">k</th><th align="center">return</th></tr></thead><tbody><tr><td align="left">“1924”</td><td align="center">2</td><td align="center">“94”</td></tr><tr><td align="left">“1231234”</td><td align="center">3</td><td align="center">“3234”</td></tr><tr><td align="left">“4177252841”</td><td align="center">4</td><td align="center">“775841”</td></tr></tbody></table><h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><h6 id="큰-수-만들기"><a href="#큰-수-만들기" class="headerlink" title="큰 수 만들기"></a>큰 수 만들기</h6><ul><li>앞 자리에 큰 수가 오면 전체가 커진다<ul><li>큰 수를 우선으로 저장한다.</li></ul></li></ul><p>앞 자리에서부터 하나씩 골라서 리스트에 저장한다. 리스트 마지막 값이 현재 저장하려는 값보다 작은 경우 리스트에서 제거하고 현재 값을 저장한다. 단, 주어진 k번만 제거할 수 있다.</p><ol><li>맨 마지막 문자 비교 - 주어진 숫자를 큰 값 순으로 리스트에 저장하여 리스트에는 내림차순으로 정렬되어있다.</li><li>현재 저장하려는 값이 리스트에 저장되어 있는 마지막 원소 값 보다 큰 경우 리스트에서 마지막 원소를 제거한다. <code>pop()</code>. 또한, k값을 하나 감소 시킨다.</li><li>2번 과정의 반복으로 k값이 0이되면 제거할 수 있는 갯수를 모두 소모한 것이다. 그러므로 현재 <code>index</code> 값 이후의 <code>number</code> 값을 리스트에 저장한다.</li><li>저장된 리스트에서 전체 길이의 <code>-k</code> 만큼의 원소를 출력한다.</li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span><span class="params">(number, k)</span>:</span></span><br><span class="line">    collected = []</span><br><span class="line">    <span class="keyword">for</span> i, num <span class="keyword">in</span> enumerate(number):</span><br><span class="line">        <span class="keyword">while</span> len(collected) &gt; <span class="number">0</span> <span class="keyword">and</span> collected[<span class="number">-1</span>] &lt; num <span class="keyword">and</span> k &gt; <span class="number">0</span>:</span><br><span class="line">            collected.pop()</span><br><span class="line">            k -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> k == <span class="number">0</span>:</span><br><span class="line">            collected += list(number[i:])</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        collected.append(num)</span><br><span class="line"></span><br><span class="line">    collected = collected[:-k] <span class="keyword">if</span> k &gt; <span class="number">0</span> <span class="keyword">else</span> collected</span><br><span class="line">    answer = <span class="string">''</span>.join(collected)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> answer</span><br></pre></td></tr></table></figure><p><a href="https://github.com/bangkm/study-algorithm/tree/master/programmers/greedy_algorithm/make%20lage%20number" target="_blank" rel="noopener">Source</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h3&gt;&lt;p&gt;어떤 숫자에서 k개의 수를 제거했을 때 얻을 수 있는 가장 큰 숫자를 구하려 합니다.&lt;/p&gt;
+&lt;p&gt;예를 들어, 숫자 1924에
+      
+    
+    </summary>
+    
+    
+      <category term="Programmers Algorithm" scheme="https://bangkm.github.io/categories/Programmers-Algorithm/"/>
+    
+    
+      <category term="Greedy Algorithm" scheme="https://bangkm.github.io/tags/Greedy-Algorithm/"/>
+    
+  </entry>
   
   <entry>
     <title>iOS Programming - Univ.Stanford Lecture03</title>
