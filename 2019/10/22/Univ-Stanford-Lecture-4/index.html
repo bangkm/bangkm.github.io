@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="Core Keyword
+Mutating
+Protocol
+Closer
+String
+
+Protocol스위프트의 자료 구조를 형성하는 네번째 기둥. API와 Caller 사이에서 서로 원하는 바를 충족시킬 수 있도록 도와준다. API가 Caller에게 원하는 메소드나 프로퍼">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Bangkm">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="iOS Programming - Univ.Stanford Lecture04">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="Core Keyword
+Mutating
+Protocol
+Closer
+String
+
+Protocol스위프트의 자료 구조를 형성하는 네번째 기둥. API와 Caller 사이에서 서로 원하는 바를 충족시킬 수 있도록 도와준다. API가 Caller에게 원하는 메소드나 프로퍼">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Bangkm">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="https://bangkm.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="https://bangkm.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>iOS Programming - Univ.Stanford Lecture04 - Bangkm</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"> </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/bangkm">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>iOS Programming - Univ.Stanford Lecture04</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-10-22
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Univ-Stanford-iOS-Programming/">#Univ.Stanford iOS Programming</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/iOS-Programming/">iOS Programming</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3 id="Core-Keyword"><a href="#Core-Keyword" class="headerlink" title="Core Keyword"></a>Core Keyword</h3><ul>
+<li>Mutating</li>
+<li>Protocol</li>
+<li>Closer</li>
+<li>String</li>
+</ul>
+<h3 id="Protocol"><a href="#Protocol" class="headerlink" title="Protocol"></a>Protocol</h3><p><strong>스위프트의 자료 구조를 형성하는 네번째 기둥</strong>. API와 Caller 사이에서 서로 원하는 바를 충족시킬 수 있도록 도와준다. API가 Caller에게 원하는 메소드나 프로퍼티를 Caller가 구현하도록 하며, Caller는 자신이 원하는 class/ struct/ enum을 전달 할 수 있다.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">SomeProtocol</span> : <span class="title">class</span>, <span class="title">InheritedProtocol1</span>, <span class="title">InheritedProtocol2</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> someProperty: <span class="type">Int</span> &#123; <span class="keyword">get</span> <span class="keyword">set</span> &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">aMethod</span><span class="params">(arg1: Double, anotherArgument: String)</span></span> -&gt; <span class="type">SomeType</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">changeIt</span><span class="params">()</span></span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">init</span>(arg: <span class="type">Type</span>)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>SomeProtocol을 상속받는 경우 InheritedProtocol1, InheritedProtocol2도 구현해 줘야 한다. </p>
+<h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><p>문자열은 유니코드들로 만들어 지지만 Character라는 개념이 있으며, 통상 Character는 사람이 인식하는 문자다. <strong>문자열은 또한 Character의 콜렉션 이다.</strong> 즉, index(of:)와 같은 메소드들은 Collecttion의 일부</p>
+<p>Collection은 <strong>Sequence</strong>이기 때문에 <strong>for 루프를 통해서 각 Character 값에 접근</strong>할 수 있습니다.</p>
+<p>문자열은 구조체로 만들어져있기 때문에 value 타입이다. 통상 문자열은 상수로 선언을 하지만 경우에 따라서는 변수로 선언할 수 있다. 이와 같은 경우 <strong>구조체이므로 내부의 값을 바꾸고자 할 때는 mutating이라는 예약어를 사용</strong>해야 하며, <strong>insert(contentsOf: at:)이 그중 하나</strong>의 예입니다.</p>
+<h3 id="Learning-Today"><a href="#Learning-Today" class="headerlink" title="Learning Today"></a>Learning Today</h3><ul>
+<li>Change to Struct from Class</li>
+<li>Apply Protocol in Concentration Game</li>
+</ul>
+<h6 id="Card-swift"><a href="#Card-swift" class="headerlink" title="Card.swift"></a>Card.swift</h6><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Card</span>: <span class="title">Hashable</span> </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> hashValue: <span class="type">Int</span> &#123; <span class="keyword">return</span> identifier &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> ==<span class="params">(lhs: Card, rhs: Card)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> lhs.identifier == rhs.identifier</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> isFaceUp = <span class="literal">false</span> <span class="comment">// 앞/뒤 구분, 뒷면에서 시작할거기 때문에 false</span></span><br><span class="line">    <span class="keyword">var</span> isMatched = <span class="literal">false</span> <span class="comment">// 매치 구분, 처음 시작시 모두 false</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> identifier: <span class="type">Int</span> <span class="comment">// 카드 고유 id</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">var</span> identifierFactory = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">getUniqueIdentifier</span><span class="params">()</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        identifierFactory += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> identifierFactory</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>() &#123;</span><br><span class="line">        <span class="keyword">self</span>.identifier = <span class="type">Card</span>.getUniqueIdentifier()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Apply Property</li>
+</ul>
+<h6 id="ViewController-swift"><a href="#ViewController-swift" class="headerlink" title="ViewController.swift"></a>ViewController.swift</h6><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@IBOutlet</span> <span class="keyword">private</span> <span class="keyword">weak</span> <span class="keyword">var</span> flipCountLabel: <span class="type">UILabel!</span> &#123;</span><br><span class="line">  <span class="keyword">didSet</span> &#123;</span><br><span class="line">    updateFlipCountLabel()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@IBOutlet</span> <span class="keyword">private</span> <span class="keyword">var</span> cardButtons: [<span class="type">UIButton</span>]!</span><br><span class="line"></span><br><span class="line"><span class="comment">// MARK:- Properties</span></span><br><span class="line"><span class="comment">// game이 private가 필한 이유 -&gt; numberOfPairOfCard(카드 쌍)의 갯수에 따라 UI가 달라지기 때문에</span></span><br><span class="line"><span class="keyword">private</span> <span class="built_in">lazy</span> <span class="keyword">var</span> game = <span class="type">Concentration</span>(numberOfPairOfCards: numberOfPairOfCards)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 카드의 수를 궁금해할 수는 있으나 설정은 안된다</span></span><br><span class="line"><span class="comment">// But, 이미 읽기 전용 메소드가 있기 때문데 private(set) 직접 설정 X</span></span><br><span class="line"><span class="keyword">var</span> numberOfPairOfCards: <span class="type">Int</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (cardButtons.<span class="built_in">count</span> + <span class="number">1</span>) / <span class="number">2</span> <span class="comment">// 읽기 전용은 get 생략가능</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 획수를 궁금해할 수는 있다. 하지만 값 설정은 X</span></span><br><span class="line"><span class="keyword">private</span>(<span class="keyword">set</span>) <span class="keyword">var</span> flipCount = <span class="number">0</span> &#123;</span><br><span class="line">  <span class="keyword">didSet</span> &#123;</span><br><span class="line">    updateFlipCountLabel()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">updateFlipCountLabel</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="keyword">let</span> attributes: [<span class="type">NSAttributedString</span>.<span class="type">Key</span>: <span class="type">Any</span>] = [</span><br><span class="line">    .strokeWidth : <span class="number">5.0</span>,</span><br><span class="line">    .strokeColor : <span class="type">UIColor</span>.orange</span><br><span class="line">  ]</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> attributedString = <span class="type">NSAttributedString</span>(string: <span class="string">"Count: \(flipCount)"</span>, attributes: attributes)</span><br><span class="line">  flipCountLabel.attributedText = attributedString</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Apply Closer in Concentration Game</li>
+</ul>
+<h6 id="Concentration-swift"><a href="#Concentration-swift" class="headerlink" title="Concentration.swift"></a>Concentration.swift</h6><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Concentration</span> </span>&#123;		</span><br><span class="line">  	...</span><br><span class="line">  </span><br><span class="line">		<span class="keyword">private</span> <span class="keyword">var</span> indexOfOneAndOnlyFaceUpCard: <span class="type">Int?</span> &#123;</span><br><span class="line">        <span class="keyword">get</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> cards.<span class="built_in">indices</span>.<span class="built_in">filter</span> &#123; cards[$<span class="number">0</span>].isFaceUp &#125;.oneAndOnly</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">set</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> index <span class="keyword">in</span> cards.<span class="built_in">indices</span> &#123;</span><br><span class="line">                cards[index].isFaceUp = (index == newValue)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  	...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Collection</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> oneAndOnly: <span class="type">Element?</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">count</span> == <span class="number">1</span> ? first : <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://github.com/bangkm/ios-develops-in-univ.stanford/tree/eb507201d5eabd845544ad0b5c61ef28404b4530" target="_blank" rel="noopener">Source</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Bangkm<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
