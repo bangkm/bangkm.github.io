@@ -1,109 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  <url>
-    <loc>https://bangkm.github.io/2020/02/25/Programmers(42840)/</loc>
-    
-    <lastmod>2020-02-25T12:21:49.499Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://bangkm.github.io/2019/10/22/Univ-Stanford-Lecture-4/</loc>
-    
-    <lastmod>2019-10-22T10:17:58.303Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://bangkm.github.io/2019/10/16/BaekJoon(2178)/</loc>
-    
-    <lastmod>2019-10-16T11:00:48.247Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://bangkm.github.io/2019/10/15/Programmers(42883)/</loc>
-    
-    <lastmod>2019-10-15T09:41:17.103Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://bangkm.github.io/2019/10/15/Univ-Stanford-Lecture-3/</loc>
-    
-    <lastmod>2019-10-15T08:02:42.085Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://bangkm.github.io/2019/10/15/Univ-Stanford-Lecture-2/</loc>
-    
-    <lastmod>2019-10-15T08:00:11.329Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://bangkm.github.io/2019/10/09/BaekJoon(1931)/</loc>
-    
-    <lastmod>2019-10-13T13:47:28.855Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://bangkm.github.io/2019/10/08/BaekJoon(10610)/</loc>
-    
-    <lastmod>2019-10-08T14:46:03.168Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://bangkm.github.io/2019/10/07/BaekJoon(1260)/</loc>
-    
-    <lastmod>2019-10-07T09:43:46.097Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://bangkm.github.io/2019/10/06/BaekJoon(5585)/</loc>
-    
-    <lastmod>2019-10-06T11:54:46.060Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://bangkm.github.io/2019/10/05/BaekJoon(11047)/</loc>
-    
-    <lastmod>2019-10-04T15:25:10.511Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://bangkm.github.io/2019/10/04/MinumumPayment/</loc>
-    
-    <lastmod>2019-10-03T17:25:12.240Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://bangkm.github.io/2019/10/04/BaekJoon(11399)/</loc>
-    
-    <lastmod>2019-10-03T17:17:12.448Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://bangkm.github.io/categories/index.html</loc>
-    
-    <lastmod>2019-10-03T17:17:08.781Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://bangkm.github.io/tags/index.html</loc>
-    
-    <lastmod>2019-10-03T17:04:50.839Z</lastmod>
-    
-  </url>
-  
-</urlset>
+---
+layout: null
+---
+{%-if site.plainwhite.sitemap -%}
+    <?xml version="1.0" encoding="UTF-8"?>
+    <urlset
+        xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+        <url>
+            <loc>{{ site.url }}</loc>
+	    <lastmod>{{ 'now' | date_to_xmlschema }}</lastmod>
+            <priority>1.00</priority>
+        </url>
+        {%- for post in site.posts -%}
+            <url>
+                <loc>{{ site.url }}{{ post.url }}</loc>
+                <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+                <changefreq>weekly</changefreq>
+                <priority>0.80</priority>
+            </url>
+        {%- endfor -%}
+    </urlset>    
+{%- endif -%}
