@@ -1,0 +1,50 @@
+I"�<p>Installing Flutter, Plugin using Visual Studio Code</p>
+
+<hr />
+
+<h3 id="install-fullter-sdk--setting-platform-in-macos">Install Fullter SDK &amp; Setting Platform in MacOS</h3>
+
+<p><a href="https://flutter-ko.dev/docs/get-started/install/macos">맥OS에서 설치</a></p>
+
+<h3 id="setting-editor">Setting Editor</h3>
+
+<p><a href="https://flutter-ko.dev/docs/get-started/editor?tab=vscode">에디터 설정</a></p>
+
+<h3 id="sample-create-app-using-visual-studio-codevsc">Sample create App using Visual Studio Code(VSC)</h3>
+
+<ol>
+  <li>Run VSC</li>
+  <li>View → Command Palette</li>
+  <li>Select Flutter: New Project</li>
+</ol>
+
+<p><strong>main() 메서드는 화살표(=&gt;) 표기법을 사용</strong>한다.</p>
+
+<p><strong>StatelessWidget</strong>을 상속받아 앱 자체를 위젯으로 만든다. Flutter에서는 정렬, 여백, 레이아웃 등이 모두 위젯.</p>
+
+<p><strong>Scaffold</strong> Widget은 홈 화면 위젯 트리를 구성하는 <strong>app bar, title, body 속성을 제공</strong>한다</p>
+
+<p>Widget의 주된 역할은 <strong>하위 위젯을 어떻게 표현할 지를 설명하는 build() 메서드를 제공</strong>하는 것</p>
+
+<ul>
+  <li><strong>Using External Library</strong></li>
+</ul>
+
+<p>pubspec.yaml → dependencies 목록 안에 추가</p>
+
+<hr />
+
+<h2 id="add-stateful-widget">Add Stateful Widget</h2>
+
+<p>StatelessWidget은 변경 불가능… 속성을 변경할 수 없으며 모든 값이 final</p>
+
+<p><strong>StatefulWidget</strong>은 Widget의 수명동안 변경될 수 있는 상태를 유지. <strong>최소 두 개 이상의 클래스가 필요</strong>하다.</p>
+
+<p>1) StatefulWidget Class가</p>
+
+<p>2) State Class의 instance를 생성</p>
+
+<p><strong>→ StatefulWidget 클래스 자체는 변경이 불가능하지만 State 클래스가 위젯의 수명동안 상태를 유지</strong></p>
+
+<p>❗Dart 언어에서 식별자 앞에 밑줄( _ )을 붙이면 Private이 적용된다</p>
+:ET
