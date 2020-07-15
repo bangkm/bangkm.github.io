@@ -6,9 +6,14 @@
                 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
         <url>
             <loc>http://localhost:4000</loc>
-	    <lastmod>2020-07-10T11:46:55+09:00</lastmod>
+	    <lastmod>2020-07-15T15:36:24+09:00</lastmod>
             <priority>1.00</priority>
         </url><url>
+                <loc>http://localhost:4000/flutter/dart/2020/07/15/Flutter-Tutorial.html</loc>
+                <lastmod>2020-07-15T00:00:00+09:00</lastmod>
+                <changefreq>weekly</changefreq>
+                <priority>0.80</priority>
+            </url><url>
                 <loc>http://localhost:4000/flutter/dart/2020/07/10/Flutter-Tutorial.html</loc>
                 <lastmod>2020-07-10T00:00:00+09:00</lastmod>
                 <changefreq>weekly</changefreq>

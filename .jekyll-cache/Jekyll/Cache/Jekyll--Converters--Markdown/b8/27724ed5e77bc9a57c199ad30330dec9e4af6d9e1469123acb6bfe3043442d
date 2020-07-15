@@ -1,0 +1,82 @@
+I"�<p>Using Visual Studio Code, Flutter Tutorial 02</p>
+
+<p>해당 글은 “첫 Flutter 앱 작성하기 - 2부”에 대한 내용이다. 1부는 공식 홈페이지에 한글로 작성되어있기에 1부는 공식 홈페이지를 참고하여 코드 작성 후 읽어보길 바란다. <a href="https://jekyllrb.com/docs/home">jekyll-docs</a> https://jekyllrb.com/docs/home</p>
+
+<h3 id="purpose">Purpose</h3>
+
+<ul>
+  <li>
+    <p><strong><em>Navigate to a new screen</em></strong></p>
+
+    <p>즐겨찾기(Favorite) 버튼을 클릭한 항목을 새로운 화면에서 보여주기</p>
+  </li>
+</ul>
+
+<p>플루터에서는 <strong><em>Navigator</em></strong>는 앱 경로를 포함하여 <strong><em>Stack</em></strong>으로 관리한다.</p>
+
+<p>Build 메서드 Scaffold 필드에 <strong><em>list 아이콘을 추가</em></strong>한다. 유저가 list 아이콘을 클릭했을 때 저장된 즐겨찾기 항목을 포함한 새로운 경로를 Navigator에 푸시한다.</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">_RandomWordsState</span> <span class="kd">extends</span> <span class="n">State</span><span class="o">&lt;</span><span class="n">RandomWords</span><span class="o">&gt;</span> <span class="o">{</span>
+  <span class="o">...</span>
+  <span class="nd">@override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">Scaffold</span><span class="o">(</span>
+      <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="o">(</span>
+        <span class="nl">title:</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Startup Name Generator'</span><span class="o">),</span>
+        <span class="nl">actions:</span> <span class="o">[</span>
+          <span class="c1">// New</span>
+          <span class="n">IconButton</span><span class="o">(</span><span class="nl">icon:</span> <span class="n">Icon</span><span class="o">(</span><span class="n">Icons</span><span class="o">.</span><span class="na">list</span><span class="o">),</span> <span class="nl">onPressed:</span> <span class="n">_pushSaved</span><span class="o">),</span>
+          <span class="c1">// onPressed -&gt; 클릭 시 수행할 함수</span>
+          <span class="c1">// END New</span>
+        <span class="o">],</span>
+      <span class="o">),</span>
+      <span class="nl">body:</span> <span class="n">_buildSuggestions</span><span class="o">(),</span>
+    <span class="o">);</span>
+  <span class="o">}</span>
+  <span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>빌드 시 AppBar에 리스트 아이콘이 보여지는 것을 확인하고, RandomWordsState에 <strong><em>_pushSaved() 함수</em></strong>를 추가한다.</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">_pushSaved</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span> <span class="o">}</span>
+</code></pre></div></div>
+
+<p>_pushSaved 함수에서 Navigator.push를 호출하여 경로를 네비게이터의 스택으로 푸시한다.</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">_pushSaved</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Navigator</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">context</span><span class="o">).</span><span class="na">push</span><span class="o">(</span>
+      <span class="n">MaterialPageRoute</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;(</span>
+        <span class="c1">// NEW lines from here...</span>
+        <span class="nl">builder:</span> <span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+          <span class="kd">final</span> <span class="n">tiles</span> <span class="o">=</span> <span class="n">_saved</span><span class="o">.</span><span class="na">map</span><span class="o">(</span>
+            <span class="o">(</span><span class="n">WordPair</span> <span class="n">pair</span><span class="o">)</span> <span class="o">{</span>
+              <span class="k">return</span> <span class="n">ListTile</span><span class="o">(</span>
+                <span class="nl">title:</span> <span class="n">Text</span><span class="o">(</span>
+                  <span class="n">pair</span><span class="o">.</span><span class="na">asPascalCase</span><span class="o">,</span>
+                  <span class="nl">style:</span> <span class="n">_biggerFont</span><span class="o">,</span>
+                <span class="o">),</span>
+              <span class="o">);</span>
+            <span class="o">},</span>
+          <span class="o">);</span>
+          <span class="kd">final</span> <span class="n">divided</span> <span class="o">=</span> <span class="n">ListTile</span><span class="o">.</span><span class="na">divideTiles</span><span class="o">(</span>
+            <span class="nl">context:</span> <span class="n">context</span><span class="o">,</span>
+            <span class="nl">tiles:</span> <span class="n">tiles</span><span class="o">,</span>
+          <span class="o">).</span><span class="na">toList</span><span class="o">();</span>
+
+          <span class="k">return</span> <span class="n">Scaffold</span><span class="o">(</span>
+            <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="o">(</span>
+              <span class="nl">title:</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Saved Suggestions'</span><span class="o">),</span>
+            <span class="o">),</span>
+            <span class="nl">body:</span> <span class="n">ListView</span><span class="o">(</span><span class="nl">children:</span> <span class="n">divided</span><span class="o">),</span>
+          <span class="o">);</span>
+        <span class="o">},</span> <span class="c1">// ...to here.</span>
+      <span class="o">),</span>
+    <span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>
+
+:ET

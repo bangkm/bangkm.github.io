@@ -1,6 +1,18 @@
 [
   
     {
+      "title"    : "Flutter 시작하기 Step 02",
+      "title-lower"    : "flutter 시작하기 step 02",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "FlutterDart",
+      "tags"     : "",
+      "url"      : "/flutter/dart/2020/07/15/Flutter-Tutorial.html",
+      "date"     : "2020-07-15 00:00:00 +0900",
+      "content"     : "Using Visual Studio Code, Flutter Tutorial 02해당 글은 “첫 Flutter 앱 작성하기 - 2부”에 대한 내용이다. 1부는 공식 홈페이지에 한글로 작성되어있기에 1부는 공식 홈페이지를 참고하여 코드 작성 후 읽어보길 바란다.첫 Flutter 앱 작성하기 - 1부 보러가기Purpose      Navigate to a..."
+    } ,
+  
+    {
       "title"    : "Flutter 시작하기 Step 01",
       "title-lower"    : "flutter 시작하기 step 01",
       "sub-titile" : "",
